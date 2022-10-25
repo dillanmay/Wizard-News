@@ -67,7 +67,10 @@ app.get("/", (req, res) => {
 const PORT = 1337;
 
 
-
+app.use((err, req, res, next) =>{
+  console.error(err.stack)
+  res.status(500).send('Not Found')
+})
 
 
 app.listen(PORT, () => {
