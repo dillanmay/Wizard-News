@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
   <html>
   <head>
     <title>Wizard News</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css"/>
   </head>
   <body>
     <div class="news-list">
@@ -49,7 +49,7 @@ app.get("/", (req, res) => {
       ${posts.map(post => `
         <div class='news-item'>
           <p>
-            <span class="news-position">${post.id}. ▲</span>${post.title}
+            <span class="news-position">${post.id}. ▲</span><a href="/posts/${post.id}">${post.title}</a>
             <small>(by ${post.name})</small>
           </p>
           <small class="news-info">
@@ -65,6 +65,10 @@ app.get("/", (req, res) => {
 });
 
 const PORT = 1337;
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`App listening in port ${PORT}`);
